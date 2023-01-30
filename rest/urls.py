@@ -121,6 +121,7 @@ urlpatterns = [
     path("decorators_api/", views.decorators_api),
     path("decorators_api/<int:pk>", views.decorators_api),
     path("", include('token_api.urls')),
+    path("", include('rest_poc.urls'))
 
 
 
