@@ -42,7 +42,7 @@ class register_user(models.Model):
 class user_kyc_info(models.Model):
     def name_file(instance, filename):
         return '/'.join(['images', str(instance.kyc_img_name), filename]) 
-    kyc_email = models.ForeignKey(register_user, to_field="email", on_delete=models.CASCADE, null=True, blank = True)
+    kyc_email = models.ForeignKey(register_user, to_field="email", on_delete=models.CASCADE)
     kyc_image = models.ImageField(null=True, blank=True, upload_to = name_file)
     kyc_img_name = models.CharField(max_length=200, null=True, blank=True)
 

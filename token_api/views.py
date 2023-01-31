@@ -296,79 +296,19 @@ def create_user_kyc(request):
         get_email = decoded['email']
         print(get_email)
         
+        # print(request.data['kyc_email'])
+        # email_get = register_user.objects.get(email = get_email)
+        # print(email_get)
+        request.data['kyc_email'] = get_email
+        # request.data['kyc_email'] = email_get
+        print(request.data.get('kyc_email'))
+        # request.data.post('kyc_email') = get_email
+        # print(request.data['kyc_image_name'])
 
-
-
-        # try:
-        #     register_object = register_user.objects.get(email=get_email)
-        #     print(register_object.email)
-        #     # if register_object.email == decoded['email']:
-
-        #     #     serializer = user_kyc_info_serializers(data = request.data)
-        #     #     serializer.data["kyc_email"] = get_email
-        #     #     if serializer.is_valid():
-        #     #         print(serializer.data)
-        #     #         serializer.save()
-        #     #         return Response(serializer.data)
-        #     #     return Response(serializer.errors)
-
-        #     # print(serializer.instance.kyc_email)
-        #     serializer = user_kyc_info_serializers()
-        #     # print(serializer.data['kyc_img_name'])
-        #     print(serializer.data['kyc_email'])
-        #     # serializer = user_kyc_info_serializers(data = request.data)
-        #     serializer.data['kyc_email'] = get_email
-        #     serializer.data['kyc_image'] = request.data.get('kyc_image')
-        #     serializer.data['kyc_img_name'] = request.data.get('kyc_img_name')
-        #     # serializer.instance
-        #     if serializer.is_valid():
-        #         print(serializer.data)
-        #         serializer.save()
-        #         return Response(serializer.data)
-        #     return Response(serializer.errors)
-        # except:
-        #     return Response({"error": "something went wrong"})
-        register_object = register_user.objects.get(email=get_email)
-        print(register_object.email)
-        # if register_object.email == decoded['email']:
-
-        #     serializer = user_kyc_info_serializers(data = request.data)
-        #     serializer.data["kyc_email"] = get_email
-        #     if serializer.is_valid():
-        #         print(serializer.data)
-        #         serializer.save()
-        #         return Response(serializer.data)
-        #     return Response(serializer.errors)
-
-        # print(serializer.instance.kyc_email)
-        serializer = user_kyc_info_serializers()
-        print(serializer.instance['kyc_email'])
-        # print(serializer.data['kyc_img_name'])
-        print(serializer.data['kyc_email'])
-        # serializer = user_kyc_info_serializers(data = request.data)
-        
-        object = {
-            'kyc_email' : get_email,
-            'kyc_image' : request.data.get('kyc_image'),
-            'kyc_img_name' : request.data.get('kyc_img_name')
-            
-
-        }
-
-        serializer = user_kyc_info_serializers(data = object)
-
-        # serializer = user_kyc_info_serializers(data.get('kyc_img_name') = request.data.get('kyc_img_name'))
-        
-        # print(serializer.data)
-        # serializer.data['kyc_email'] = get_email
-        # serializer.data['kyc_email']
-        # serializer.data['kyc_image'] = request.data.get('kyc_image')
-        # serializer.data['kyc_img_name'] = request.data.get('kyc_img_name')
-        
-        # serializer.instance
-        print(serializer.data)
+        print(request.data)
+        serializer = user_kyc_info_serializers(data = request.data)
         if serializer.is_valid():
-            print(serializer.data)
+            # print(serializer.data)
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
@@ -376,33 +316,218 @@ def create_user_kyc(request):
 
 
 
+    #     # ----------------------------------------------------------------------------
+    #     # try:
+    #     #     register_object = register_user.objects.get(email=get_email)
+    #     #     print(register_object.email)
+    #     #     # if register_object.email == decoded['email']:
 
-        # print(request.data['kyc_email'])
-        # request.data["kyc_email"] = get_email
-        # # data_get = request.data
-        # # print(data_get["kyc_img_name"])
-        # # print(data_get)
-        # print(request.data['kyc_email'])
-        # serializer = user_kyc_info_serializers(data=request.data)
-        # # print(serializer.data)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     print(serializer.data)
-        #     return Response(serializer.data)
-        # return Response(serializer.errors)
+    #     #     #     serializer = user_kyc_info_serializers(data = request.data)
+    #     #     #     serializer.data["kyc_email"] = get_email
+    #     #     #     if serializer.is_valid():
+    #     #     #         print(serializer.data)
+    #     #     #         serializer.save()
+    #     #     #         return Response(serializer.data)
+    #     #     #     return Response(serializer.errors)
+
+    #     #     # print(serializer.instance.kyc_email)
+    #     #     serializer = user_kyc_info_serializers()
+    #     #     # print(serializer.data['kyc_img_name'])
+    #     #     print(serializer.data['kyc_email'])
+    #     #     # serializer = user_kyc_info_serializers(data = request.data)
+    #     #     serializer.data['kyc_email'] = get_email
+    #     #     serializer.data['kyc_image'] = request.data.get('kyc_image')
+    #     #     serializer.data['kyc_img_name'] = request.data.get('kyc_img_name')
+    #     #     # serializer.instance
+    #     #     if serializer.is_valid():
+    #     #         print(serializer.data)
+    #     #         serializer.save()
+    #     #         return Response(serializer.data)
+    #     #     return Response(serializer.errors)
+    #     # except:
+    #     #     return Response({"error": "something went wrong"})
+    #     register_object = register_user.objects.get(email=get_email)
+    #     print(register_object.email)
+    #     # if register_object.email == decoded['email']:
+
+    #     #     serializer = user_kyc_info_serializers(data = request.data)
+    #     #     serializer.data["kyc_email"] = get_email
+    #     #     if serializer.is_valid():
+    #     #         print(serializer.data)
+    #     #         serializer.save()
+    #     #         return Response(serializer.data)
+    #     #     return Response(serializer.errors)
+
+    #     # print(serializer.instance.kyc_email)
+    #     serializer = user_kyc_info_serializers()
+    #     print(serializer.instance['kyc_email'])
+    #     # print(serializer.data['kyc_img_name'])
+    #     print(serializer.data['kyc_email'])
+    #     # serializer = user_kyc_info_serializers(data = request.data)
+        
+    #     object = {
+    #         'kyc_email' : get_email,
+    #         'kyc_image' : request.data.get('kyc_image'),
+    #         'kyc_img_name' : request.data.get('kyc_img_name')
+            
+
+    #     }
+
+    #     serializer = user_kyc_info_serializers(data = object)
+
+    #     # serializer = user_kyc_info_serializers(data.get('kyc_img_name') = request.data.get('kyc_img_name'))
+        
+    #     # print(serializer.data)
+    #     # serializer.data['kyc_email'] = get_email
+    #     # serializer.data['kyc_email']
+    #     # serializer.data['kyc_image'] = request.data.get('kyc_image')
+    #     # serializer.data['kyc_img_name'] = request.data.get('kyc_img_name')
+        
+    #     # serializer.instance
+    #     print(serializer.data)
+    #     if serializer.is_valid():
+    #         print(serializer.data)
+    #         serializer.save()
+    #         return Response(serializer.data)
+    #     return Response(serializer.errors)
+
+
+
+
+
+    #     # print(request.data['kyc_email'])
+    #     # request.data["kyc_email"] = get_email
+    #     # # data_get = request.data
+    #     # # print(data_get["kyc_img_name"])
+    #     # # print(data_get)
+    #     # print(request.data['kyc_email'])
+    #     # serializer = user_kyc_info_serializers(data=request.data)
+    #     # # print(serializer.data)
+    #     # if serializer.is_valid():
+    #     #     serializer.save()
+    #     #     print(serializer.data)
+    #     #     return Response(serializer.data)
+    #     # return Response(serializer.errors)
+    # # -------------------------------------------------------
+
 
 @api_view(['GET'])
-# @authentication_classes([JWTAuthentication])
+# @authentication_classes([BasicAuthentication])
 # @permission_classes([IsAuthenticated])
 def get_user_kyc(request):
 
     if request.method == 'GET':
         all_data = user_kyc_info.objects.all()
+        # get_data = user_kyc_info.objects.get(email = 'steve_rogers@avengers.com')
+        print(all_data)
         serializer = user_kyc_info_serializers(all_data, many=True)
         print(serializer.data)
-        print(serializer.data[1]['kyc_image'])
+        # print(serializer.data[1]['kyc_image'])
         return Response(serializer.data)
 
+@api_view(['PUT'])
+def update_user_kyc(request):
+    print(request.data)
+    print(type(request.data.get('kyc_image')))
+    token_data = request.headers.get('Authorization', None)
+    print(token_data)
+    decoded = jwt.decode(token_data, "secret", algorithms=["HS256"])
+    get_email = decoded['email']
+    print(get_email)
+
+    register_user_data = register_user.objects.get(email = get_email)
+    print(register_user_data.last_name)
+    # register_user_data1 = register_user.objects.all()
+    user_kyc_info_data = user_kyc_info.objects.get(kyc_email = get_email)
+    print(user_kyc_info_data.kyc_img_name)
+    # if register_user_data != None:
+    #     register_user_data_filter = register_user.objects.get(email = get_email)
+    #     user_kyc_info_data_filter = user_kyc_info.objects.get(email = get_email)
+    #     print(register_user_data.email)
+    #     print(register_user_data_filter)
+    #     print(user_kyc_info_data_filter)
+
+    # register_user_data_object = {'first_name': request.data['first_name'], 'last_name': request.data['last_name'], 'address': request.data['address']}
+    # print(register_user_data_object)
+    # user_kyc_info_data_object = {'kyc_image': request.data['kyc_image'], 'kyc_img_name': request.data['kyc_img_name']}
+    # print(user_kyc_info_data_object)
+    
+    if user_kyc_info_data != None:
+        register_user_data_object = {'first_name': request.data['first_name'], 'last_name': request.data['last_name'], 'address': request.data['address']}
+        print(register_user_data_object)
+        user_kyc_info_data_object = {'kyc_image': request.data['kyc_image'], 'kyc_img_name': request.data['kyc_img_name']}
+        print(user_kyc_info_data_object)
+        serializer1 = register_user_serializers(register_user_data, data = register_user_data_object, partial = True)
+        if serializer1.is_valid():
+
+            serializer1.save()
+            print(serializer1.data)
+
+            serializer2 = user_kyc_info_serializers(user_kyc_info_data, data = user_kyc_info_data_object, partial = True)
+            if serializer2.is_valid():
+
+                serializer2.save()
+                print(serializer2.data)
+
+                object ={
+                            'email': get_email, 
+                            'first_name': serializer1.data['first_name'],
+                            'last_name': serializer1.data['last_name'],
+                            'address': serializer1.data['address'],
+                            'kyc_image': serializer2.data['kyc_image'],
+                            'kyc_img_name': serializer2.data['kyc_img_name'],
+                        } 
+                print(object)         
+
+            return Response({'user_data': object})
+
+            # return Response({'reguister_user': serializer1.data, 'useer_kyc_info': serializer2.data})
+
+        return Response(serializer1.errors)
+
+
+
+        # serializer2 = user_kyc_info_serializers(user_kyc_info_data, data = user_kyc_info_data_object, partial = True)
+        # if serializer2.is_valid():
+
+        #     print(serializer2.data)
+            # serializer1.save()
+            # serializer2.save()
+
+@api_view(['GET'])
+def get_user_kyc_info(request):
+    token_data = request.headers.get('Authorization', None)
+    print(token_data)
+    decoded = jwt.decode(token_data, "secret", algorithms=["HS256"])
+    print(decoded['email'])
+    email_decoded = decoded['email']
+
+    data_register_user = register_user.objects.get(email=email_decoded)
+    print(data_register_user.first_name)
+    serializer1 = register_user_serializers(data_register_user, many=False)
+    print(serializer1.data)
+
+    data_user_kyc_info = user_kyc_info.objects.get(kyc_email = email_decoded)
+    serializer2 = user_kyc_info_serializers(data_user_kyc_info, many=False)
+    print(serializer2.data)
+
+    object ={
+        'email': email_decoded, 
+        'first_name': serializer1.data['first_name'],
+        'last_name': serializer1.data['last_name'],
+        'address': serializer1.data['address'],
+        'kyc_image': serializer2.data['kyc_image'],
+        'kyc_img_name': serializer2.data['kyc_img_name'],
+    } 
+
+    print(object)
+    # ['id', 'email', 'first_name', 'last_name', 'address', 'kyc_image', 'kyc_img_name']
+
+    # serializer3 = user_update_kyc_serializer()
+
+    # return Response({'data1': serializer1.data, 'data2': serializer2.data})
+
+    return Response({'user_data': object})
 
 
 

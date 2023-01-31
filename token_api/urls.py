@@ -32,4 +32,6 @@ urlpatterns = [
     path("get_all_data/", views.get_all_data, name="get_all_data"),
     path("create_user_kyc/", views.create_user_kyc, name="create_user_kyc"),
     path("get_user_kyc/", views.get_user_kyc, name="get_user_kyc"),
+    path("update_user_kyc/", views.update_user_kyc, name="update_user_kyc"),
+    path("get_user_kyc_info/", views.get_user_kyc_info, name="get_user_kyc_info"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
